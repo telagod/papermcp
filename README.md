@@ -164,6 +164,96 @@ Add to Cody settings:
 
 </details>
 
+<details>
+<summary><b>Install in Cursor</b></summary>
+
+Add to Cursor MCP settings:
+
+```json
+{
+  "mcpServers": {
+    "papermcp": {
+      "command": "npx",
+      "args": ["-y", "@telagod/papermcp"]
+    }
+  }
+}
+```
+
+</details>
+
+<details>
+<summary><b>Install in Windsurf</b></summary>
+
+Add to Windsurf config:
+
+```json
+{
+  "mcpServers": {
+    "papermcp": {
+      "command": "npx",
+      "args": ["-y", "@telagod/papermcp"]
+    }
+  }
+}
+```
+
+</details>
+
+<details>
+<summary><b>Install in Roo Cline</b></summary>
+
+Add to Roo Cline settings:
+
+```json
+{
+  "mcpServers": {
+    "papermcp": {
+      "command": "npx",
+      "args": ["-y", "@telagod/papermcp"]
+    }
+  }
+}
+```
+
+</details>
+
+<details>
+<summary><b>Install in OpenHands</b></summary>
+
+Add to OpenHands config:
+
+```json
+{
+  "mcpServers": {
+    "papermcp": {
+      "command": "npx",
+      "args": ["-y", "@telagod/papermcp"]
+    }
+  }
+}
+```
+
+</details>
+
+<details>
+<summary><b>Install in Void</b></summary>
+
+Add to Void settings:
+
+```json
+{
+  "mcpServers": {
+    "papermcp": {
+      "command": "npx",
+      "args": ["-y", "@telagod/papermcp"]
+    }
+  }
+}
+```
+
+</details>
+
 ---
 
 ## 📚 Supported Platforms

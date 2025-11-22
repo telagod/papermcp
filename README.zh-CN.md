@@ -164,6 +164,96 @@ npm install -g @telagod/papermcp
 
 </details>
 
+<details>
+<summary><b>在 Cursor 中安装</b></summary>
+
+添加到 Cursor MCP 设置：
+
+```json
+{
+  "mcpServers": {
+    "papermcp": {
+      "command": "npx",
+      "args": ["-y", "@telagod/papermcp"]
+    }
+  }
+}
+```
+
+</details>
+
+<details>
+<summary><b>在 Windsurf 中安装</b></summary>
+
+添加到 Windsurf 配置：
+
+```json
+{
+  "mcpServers": {
+    "papermcp": {
+      "command": "npx",
+      "args": ["-y", "@telagod/papermcp"]
+    }
+  }
+}
+```
+
+</details>
+
+<details>
+<summary><b>在 Roo Cline 中安装</b></summary>
+
+添加到 Roo Cline 设置：
+
+```json
+{
+  "mcpServers": {
+    "papermcp": {
+      "command": "npx",
+      "args": ["-y", "@telagod/papermcp"]
+    }
+  }
+}
+```
+
+</details>
+
+<details>
+<summary><b>在 OpenHands 中安装</b></summary>
+
+添加到 OpenHands 配置：
+
+```json
+{
+  "mcpServers": {
+    "papermcp": {
+      "command": "npx",
+      "args": ["-y", "@telagod/papermcp"]
+    }
+  }
+}
+```
+
+</details>
+
+<details>
+<summary><b>在 Void 中安装</b></summary>
+
+添加到 Void 设置：
+
+```json
+{
+  "mcpServers": {
+    "papermcp": {
+      "command": "npx",
+      "args": ["-y", "@telagod/papermcp"]
+    }
+  }
+}
+```
+
+</details>
+
 ---
 
 ## 📚 支持的平台
