@@ -397,48 +397,48 @@ PLUGIN_IEEE_XPLORE=true
 
 ## 🚀 Usage
 
-### Available Tools
+### Available Tools (4 Unified Tools)
 
-#### `search_papers`
-Search for papers across platforms
+#### `recommend_platforms`
+Get platform recommendations based on field
 
 ```typescript
 {
-  "platform": "arxiv",
+  "query": "transformer neural network",
+  "field": "computer-science"  // biomedical, physics, mathematics, cryptography, open-access, general
+}
+```
+
+#### `search_papers`
+Search for papers on specified platform
+
+```typescript
+{
+  "platform": "arxiv",  // Use recommend_platforms to get suggestions
   "query": "machine learning",
   "limit": 10
 }
 ```
 
 #### `download_paper`
-Download paper PDF
+Download paper PDF from platform
 
 ```typescript
 {
   "platform": "arxiv",
   "id": "2301.00001",
-  "directory": "/path/to/save"
+  "dir": "/path/to/save"
 }
 ```
 
 #### `read_paper`
-Extract text from paper
+Extract text from paper PDF
 
 ```typescript
 {
   "platform": "pmc",
   "id": "PMC8123456",
-  "directory": "/path/to/pdfs"
-}
-```
-
-#### `lookup_paper`
-Get paper metadata by ID
-
-```typescript
-{
-  "platform": "crossref",
-  "id": "10.1234/example"
+  "dir": "/path/to/pdfs"
 }
 ```
 
@@ -454,32 +454,33 @@ SEMANTIC_SCHOLAR_API_KEY=your-key
 WOS_API_KEY=your-key
 SCOPUS_API_KEY=your-key
 CORE_API_KEY=your-key
-MICROSOFT_ACADEMIC_API_KEY=your-key
 
 # Plugin toggles (default: false)
-PLUGIN_SCI_HUB=false
-PLUGIN_LIBGEN=false
-PLUGIN_UNPAYWALL=false
-PLUGIN_OA_BUTTON=false
-PLUGIN_SCIENCE_DIRECT=false
-PLUGIN_SPRINGER_LINK=false
-PLUGIN_IEEE_XPLORE=false
+PLUGIN_SCI_HUB=true              # No config needed
+PLUGIN_LIBGEN=true               # No config needed
+PLUGIN_UNPAYWALL=true            # Requires UNPAYWALL_EMAIL
+PLUGIN_OA_BUTTON=true            # Optional OA_BUTTON_API_KEY
+PLUGIN_SCIENCE_DIRECT=true       # Requires ELSEVIER_API_KEY
+PLUGIN_SPRINGER_LINK=true        # No config needed
+PLUGIN_IEEE_XPLORE=true          # No config needed
 
-# Unpaywall requires email
-UNPAYWALL_EMAIL=your@email.com
-
-# Custom endpoints
-SCIHUB_BASE_URL=https://sci-hub.se
-LIBGEN_BASE_URL=https://libgen.is
+# Plugin API keys
+UNPAYWALL_EMAIL=your@email.com           # Required for Unpaywall
+ELSEVIER_API_KEY=your-key                # Required for ScienceDirect
+OA_BUTTON_API_KEY=your-key               # Optional for Open Access Button
 ```
 
 ### Getting API Keys
 
-- **Web of Science**: [Clarivate Developer Portal](https://developer.clarivate.com/)
-- **Scopus**: [Elsevier Developer Portal](https://dev.elsevier.com/)
-- **CORE**: [CORE API](https://core.ac.uk/services/api)
-- **Microsoft Academic**: [Azure Cognitive Services](https://azure.microsoft.com/services/cognitive-services/)
-- **Semantic Scholar**: [S2 API](https://www.semanticscholar.org/product/api)
+| Platform | Link | Notes |
+|----------|------|-------|
+| **Semantic Scholar** | [Apply](https://www.semanticscholar.org/product/api) | Free, increases rate limit |
+| **Web of Science** | [Apply](https://developer.clarivate.com/) | Requires institutional subscription |
+| **Scopus** | [Apply](https://dev.elsevier.com/) | Requires institutional subscription |
+| **CORE** | [Apply](https://core.ac.uk/services/api) | Free |
+| **Unpaywall** | Any email | No registration needed |
+| **ScienceDirect** | [Apply](https://dev.elsevier.com/) | Requires institutional subscription |
+| **Open Access Button** | [Apply](https://openaccessbutton.org/account) | Optional, free |
 
 ---
 

@@ -397,48 +397,48 @@ PLUGIN_IEEE_XPLORE=true
 
 ## 🚀 使用
 
-### 可用工具
+### 可用工具（4个统一工具）
 
-#### `search_papers`
-跨平台搜索论文
+#### `recommend_platforms`
+根据领域获取平台推荐
 
 ```typescript
 {
-  "platform": "arxiv",
+  "query": "transformer neural network",
+  "field": "computer-science"  // biomedical, physics, mathematics, cryptography, open-access, general
+}
+```
+
+#### `search_papers`
+在指定平台搜索论文
+
+```typescript
+{
+  "platform": "arxiv",  // 使用 recommend_platforms 获取推荐
   "query": "machine learning",
   "limit": 10
 }
 ```
 
 #### `download_paper`
-下载论文 PDF
+从平台下载论文 PDF
 
 ```typescript
 {
   "platform": "arxiv",
   "id": "2301.00001",
-  "directory": "/path/to/save"
+  "dir": "/path/to/save"
 }
 ```
 
 #### `read_paper`
-从论文中提取文本
+提取论文 PDF 文本
 
 ```typescript
 {
   "platform": "pmc",
   "id": "PMC8123456",
-  "directory": "/path/to/pdfs"
-}
-```
-
-#### `lookup_paper`
-通过 ID 获取论文元数据
-
-```typescript
-{
-  "platform": "crossref",
-  "id": "10.1234/example"
+  "dir": "/path/to/pdfs"
 }
 ```
 
@@ -454,32 +454,33 @@ SEMANTIC_SCHOLAR_API_KEY=your-key
 WOS_API_KEY=your-key
 SCOPUS_API_KEY=your-key
 CORE_API_KEY=your-key
-MICROSOFT_ACADEMIC_API_KEY=your-key
 
 # 插件开关（默认：false）
-PLUGIN_SCI_HUB=false
-PLUGIN_LIBGEN=false
-PLUGIN_UNPAYWALL=false
-PLUGIN_OA_BUTTON=false
-PLUGIN_SCIENCE_DIRECT=false
-PLUGIN_SPRINGER_LINK=false
-PLUGIN_IEEE_XPLORE=false
+PLUGIN_SCI_HUB=true              # 无需配置
+PLUGIN_LIBGEN=true               # 无需配置
+PLUGIN_UNPAYWALL=true            # 需要 UNPAYWALL_EMAIL
+PLUGIN_OA_BUTTON=true            # 可选 OA_BUTTON_API_KEY
+PLUGIN_SCIENCE_DIRECT=true       # 需要 ELSEVIER_API_KEY
+PLUGIN_SPRINGER_LINK=true        # 无需配置
+PLUGIN_IEEE_XPLORE=true          # 无需配置
 
-# Unpaywall 需要邮箱
-UNPAYWALL_EMAIL=your@email.com
-
-# 自定义端点
-SCIHUB_BASE_URL=https://sci-hub.se
-LIBGEN_BASE_URL=https://libgen.is
+# 插件 API 密钥
+UNPAYWALL_EMAIL=your@email.com           # Unpaywall 必需
+ELSEVIER_API_KEY=your-key                # ScienceDirect 必需
+OA_BUTTON_API_KEY=your-key               # Open Access Button 可选
 ```
 
 ### 获取 API 密钥
 
-- **Web of Science**: [Clarivate 开发者门户](https://developer.clarivate.com/)
-- **Scopus**: [Elsevier 开发者门户](https://dev.elsevier.com/)
-- **CORE**: [CORE API](https://core.ac.uk/services/api)
-- **Microsoft Academic**: [Azure 认知服务](https://azure.microsoft.com/services/cognitive-services/)
-- **Semantic Scholar**: [S2 API](https://www.semanticscholar.org/product/api)
+| 平台 | 链接 | 说明 |
+|------|------|------|
+| **Semantic Scholar** | [申请](https://www.semanticscholar.org/product/api) | 免费，提高限额 |
+| **Web of Science** | [申请](https://developer.clarivate.com/) | 需要机构订阅 |
+| **Scopus** | [申请](https://dev.elsevier.com/) | 需要机构订阅 |
+| **CORE** | [申请](https://core.ac.uk/services/api) | 免费 |
+| **Unpaywall** | 任意邮箱 | 无需注册 |
+| **ScienceDirect** | [申请](https://dev.elsevier.com/) | 需要机构订阅 |
+| **Open Access Button** | [申请](https://openaccessbutton.org/account) | 可选，免费 |
 
 ---
 

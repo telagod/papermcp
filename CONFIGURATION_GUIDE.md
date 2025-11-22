@@ -37,22 +37,27 @@
 
 ### 插件配置
 
-| 变量 | 默认值 | 说明 |
-|------|--------|------|
-| `PLUGIN_SCI_HUB` | false | 启用 Sci-Hub |
-| `PLUGIN_LIBGEN` | false | 启用 LibGen |
-| `PLUGIN_UNPAYWALL` | false | 启用 Unpaywall |
-| `PLUGIN_OA_BUTTON` | false | 启用 Open Access Button |
+| 变量 | 默认值 | 说明 | 配置要求 |
+|------|--------|------|----------|
+| `PLUGIN_SCI_HUB` | false | 启用 Sci-Hub | 无需配置 |
+| `PLUGIN_LIBGEN` | false | 启用 LibGen | 无需配置 |
+| `PLUGIN_UNPAYWALL` | false | 启用 Unpaywall | 需要 `UNPAYWALL_EMAIL` |
+| `PLUGIN_OA_BUTTON` | false | 启用 Open Access Button | 可选 API key |
+| `PLUGIN_SCIENCE_DIRECT` | false | 启用 ScienceDirect | 需要 `ELSEVIER_API_KEY` |
+| `PLUGIN_SPRINGER_LINK` | false | 启用 Springer Link | 无需配置 |
+| `PLUGIN_IEEE_XPLORE` | false | 启用 IEEE Xplore | 无需配置 |
 
 ### API Keys（可选）
 
-| 变量 | 平台 | 获取方式 |
-|------|------|----------|
-| `SEMANTIC_SCHOLAR_API_KEY` | Semantic Scholar | [申请](https://www.semanticscholar.org/product/api) |
-| `WOS_API_KEY` | Web of Science | [申请](https://developer.clarivate.com/) |
-| `SCOPUS_API_KEY` | Scopus | [申请](https://dev.elsevier.com/) |
-| `CORE_API_KEY` | CORE | [申请](https://core.ac.uk/services/api) |
-| `UNPAYWALL_EMAIL` | Unpaywall | 任意邮箱 |
+| 变量 | 平台 | 获取方式 | 说明 |
+|------|------|----------|------|
+| `SEMANTIC_SCHOLAR_API_KEY` | Semantic Scholar | [申请](https://www.semanticscholar.org/product/api) | 提高限额 |
+| `WOS_API_KEY` | Web of Science | [申请](https://developer.clarivate.com/) | 需要机构订阅 |
+| `SCOPUS_API_KEY` | Scopus | [申请](https://dev.elsevier.com/) | 需要机构订阅 |
+| `CORE_API_KEY` | CORE | [申请](https://core.ac.uk/services/api) | 免费 |
+| `UNPAYWALL_EMAIL` | Unpaywall | 任意邮箱 | 必需（插件启用时） |
+| `ELSEVIER_API_KEY` | ScienceDirect | [申请](https://dev.elsevier.com/) | 需要机构订阅 |
+| `OA_BUTTON_API_KEY` | Open Access Button | [申请](https://openaccessbutton.org/account) | 可选 |
 
 ## 使用场景配置
 

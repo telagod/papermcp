@@ -1,6 +1,6 @@
 {
   "name": "@telagod/papermcp",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "MCP server for searching and accessing academic papers from 23+ sources",
   "type": "module",
   "main": "dist/index.js",
