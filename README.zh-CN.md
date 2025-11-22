@@ -257,7 +257,13 @@ npm install -g @telagod/papermcp
 <details>
 <summary><b>在 Claude Code 中安装</b></summary>
 
-添加到 `~/.claude.json`：
+使用 `claude mcp add` 命令：
+
+```bash
+claude mcp add papermcp -- npx -y @telagod/papermcp
+```
+
+或手动添加到 `~/.claude.json`：
 
 ```json
 {

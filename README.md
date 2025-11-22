@@ -257,7 +257,13 @@ Add to Void settings:
 <details>
 <summary><b>Install in Claude Code</b></summary>
 
-Add to `~/.claude.json`:
+Use the `claude mcp add` command:
+
+```bash
+claude mcp add papermcp -- npx -y @telagod/papermcp
+```
+
+Or manually add to `~/.claude.json`:
 
 ```json
 {
