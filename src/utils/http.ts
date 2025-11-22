@@ -7,17 +7,45 @@ const limiter = new Bottleneck({
   minTime: appConfig.http.minIntervalMs,
 });
 
+const userAgents = [
+  'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
+  'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
+  'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
+  'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:121.0) Gecko/20100101 Firefox/121.0',
+  'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:121.0) Gecko/20100101 Firefox/121.0',
+];
+
+const getRandomUserAgent = () => userAgents[Math.floor(Math.random() * userAgents.length)];
+
 const baseClient = got.extend({
   timeout: { request: appConfig.http.timeoutMs },
   retry: {
     limit: appConfig.http.retryCount,
     methods: ['GET', 'PUT', 'POST', 'DELETE', 'OPTIONS'],
-    statusCodes: [408, 413, 429, 500, 502, 503, 504],
+    statusCodes: [408, 413, 429, 500, 502, 503, 504, 520, 521, 522, 524],
+    backoffLimit: 10000,
+    calculateDelay: ({ attemptCount, retryOptions }) => {
+      if (attemptCount > retryOptions.limit) return 0;
+      const delay = Math.min(1000 * Math.pow(2, attemptCount - 1), retryOptions.backoffLimit);
+      return delay + Math.random() * 1000;
+    },
   },
   headers: {
-    'user-agent': appConfig.http.userAgent,
+    'user-agent': getRandomUserAgent(),
+    'accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+    'accept-language': 'en-US,en;q=0.9',
+    'accept-encoding': 'gzip, deflate, br',
+    'cache-control': 'no-cache',
+    'pragma': 'no-cache',
   },
-  http2: true,
+  http2: false,
+  hooks: {
+    beforeRequest: [
+      (options) => {
+        options.headers['user-agent'] = getRandomUserAgent();
+      },
+    ],
+  },
 });
 
 const schedule = async <T>(task: () => Promise<T>): Promise<T> => limiter.schedule(task);
