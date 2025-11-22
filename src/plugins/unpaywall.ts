@@ -12,8 +12,8 @@ const isValidEmail = (value: string | undefined): value is string => Boolean(val
 
 const toPaper = (data: Record<string, any>): Paper => {
   const best = data.best_oa_location || {};
-  const authors = Array.isArray(data.z_authors)
-    ? data.z_authors.map((author: Record<string, unknown>) => author.family).filter(Boolean)
+  const authors: string[] = Array.isArray(data.z_authors)
+    ? data.z_authors.map((author: Record<string, unknown>) => String(author.family ?? '')).filter(Boolean)
     : [];
   return {
     id: data.doi,

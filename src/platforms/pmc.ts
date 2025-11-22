@@ -32,18 +32,18 @@ const normalizeAuthors = (authors?: Array<{ name?: string }>): string[] => {
 };
 
 const summaryToPaper = (item: Record<string, unknown>): Paper | null => {
-  const articleIds: Array<{ idtype?: string; value?: string }> = item.articleids ?? [];
+  const articleIds = (Array.isArray(item.articleids) ? item.articleids : []) as Array<{ idtype?: string; value?: string }>;
   const pmcid = articleIds.find(entry => entry.idtype === 'pmcid')?.value;
   if (!pmcid) {
     return null;
   }
   const doi = articleIds.find(entry => entry.idtype === 'doi')?.value ?? '';
-  const publishedAt = toIsoDate(item.pubdate);
+  const publishedAt = toIsoDate(String(item.pubdate ?? ''));
   return {
     id: pmcid,
-    title: item.title ?? '',
-    authors: normalizeAuthors(item.authors),
-    abstract: item.summary ?? '',
+    title: String(item.title ?? ''),
+    authors: normalizeAuthors(item.authors as Array<{ name?: string }> | undefined),
+    abstract: String(item.summary ?? ''),
     doi,
     url: buildArticleUrl(pmcid),
     source: 'pmc',
@@ -51,7 +51,7 @@ const summaryToPaper = (item: Record<string, unknown>): Paper | null => {
     keywords: [],
     references: [],
     extra: {
-      journal: item.source ?? '',
+      journal: String(item.source ?? ''),
     },
     pdfUrl: buildPdfUrl(pmcid),
     ...(publishedAt ? { publishedAt, updatedAt: publishedAt } : {}),

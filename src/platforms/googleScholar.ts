@@ -29,7 +29,7 @@ const extractYear = (text: string): number | undefined => {
   return undefined;
 };
 
-const sanitizePdfUrl = (container: Record<string, unknown>): string | undefined => {
+const sanitizePdfUrl = (container: any): string | undefined => {
   const quick = container.find('.gs_or_ggsm a').attr('href');
   if (quick) {
     return quick;
@@ -76,7 +76,7 @@ const fetchScholarPage = async (params: URLSearchParams, attempt = 0): Promise<{
   }
 };
 
-const buildPaper = (element: any, $: Record<string, unknown>): Paper | null => {
+const buildPaper = (element: any, $: any): Paper | null => {
   const node = $(element);
   const titleNode = node.find('h3.gs_rt');
   const infoNode = node.find('div.gs_a');

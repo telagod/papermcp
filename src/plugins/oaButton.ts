@@ -11,7 +11,7 @@ const looksLikeDoi = (value: string) => /10\.\d{4,9}\//.test(value);
 
 const toPaper = (item: Record<string, any>): Paper => {
   const best = item.best_oa_location || item.best_permission || {};
-  const authors = Array.isArray(item.authors) ? item.authors.map((author: Record<string, unknown>) => author.name).filter(Boolean) : [];
+  const authors: string[] = Array.isArray(item.authors) ? item.authors.map((author: Record<string, unknown>) => String(author.name ?? '')).filter(Boolean) : [];
   const doi = item.doi || item.id || '';
   return {
     id: doi || item.url || item.id,
