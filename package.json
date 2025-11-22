@@ -1,0 +1,68 @@
+{
+  "name": "@telagod/papermcp",
+  "version": "0.1.0",
+  "description": "MCP server for searching and accessing academic papers from 23+ sources",
+  "type": "module",
+  "main": "dist/index.js",
+  "bin": {
+    "papermcp": "dist/index.js"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "academic-papers",
+    "research",
+    "arxiv",
+    "pubmed",
+    "typescript"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/telagod/papermcp.git"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  },
+  "author": "",
+  "license": "MIT",
+  "scripts": {
+    "build": "tsc -p tsconfig.json && chmod +x dist/index.js",
+    "clean": "rimraf dist",
+    "dev": "tsx src/index.ts",
+    "lint": "eslint src --ext .ts",
+    "test": "vitest",
+    "prepublishOnly": "npm run clean && npm run build"
+  },
+  "engines": {
+    "node": ">=18.18"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.22.0",
+    "bottleneck": "^2.19.5",
+    "cheerio": "^1.1.2",
+    "fast-xml-parser": "^5.3.2",
+    "got": "^14.3.0",
+    "pdf-parse": "^1.1.1",
+    "pino": "^9.0.0",
+    "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "@types/cheerio": "^0.22.35",
+    "@types/node": "^20.11.24",
+    "@types/pdf-parse": "^1.1.5",
+    "@typescript-eslint/eslint-plugin": "^8.47.0",
+    "@typescript-eslint/parser": "^8.47.0",
+    "eslint": "^8.57.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-import": "^2.29.1",
+    "rimraf": "^5.0.5",
+    "tsx": "^4.7.1",
+    "typescript": "^5.4.5",
+    "vitest": "^1.5.0"
+  }
+}
