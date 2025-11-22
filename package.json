@@ -25,6 +25,10 @@
     "type": "git",
     "url": "git+https://github.com/telagod/papermcp.git"
   },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  },
   "author": "",
   "license": "MIT",
   "scripts": {
