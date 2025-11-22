@@ -254,6 +254,97 @@ npm install -g @telagod/papermcp
 
 </details>
 
+<details>
+<summary><b>在 Claude Code 中安装</b></summary>
+
+添加到 `~/.claude.json`：
+
+```json
+{
+  "projects": {
+    "/your/project/path": {
+      "mcpServers": {
+        "papermcp": {
+          "command": "npx",
+          "args": ["-y", "@telagod/papermcp"]
+        }
+      }
+    }
+  }
+}
+```
+
+</details>
+
+<details>
+<summary><b>在 Gemini CLI 中安装</b></summary>
+
+添加到 `~/.config/gemini-cli/settings.json`：
+
+```json
+{
+  "mcpServers": {
+    "papermcp": {
+      "command": "npx",
+      "args": ["-y", "@telagod/papermcp"]
+    }
+  }
+}
+```
+
+</details>
+
+<details>
+<summary><b>在 Codex CLI 中安装</b></summary>
+
+添加到 `~/.codex/config.toml`：
+
+```toml
+[mcp_servers.papermcp]
+command = "npx"
+args = ["-y", "@telagod/papermcp"]
+```
+
+</details>
+
+<details>
+<summary><b>在 OpenCode 中安装</b></summary>
+
+添加到 `.opencode.json`：
+
+```json
+{
+  "$schema": "https://opencode.ai/config.json",
+  "mcp": {
+    "papermcp": {
+      "type": "local",
+      "command": ["npx", "-y", "@telagod/papermcp"],
+      "enabled": true
+    }
+  }
+}
+```
+
+</details>
+
+<details>
+<summary><b>在 Crush CLI 中安装</b></summary>
+
+添加到 Crush 配置：
+
+```json
+{
+  "mcpServers": {
+    "papermcp": {
+      "command": "npx",
+      "args": ["-y", "@telagod/papermcp"]
+    }
+  }
+}
+```
+
+</details>
+
 ---
 
 ## 📚 支持的平台

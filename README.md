@@ -254,6 +254,97 @@ Add to Void settings:
 
 </details>
 
+<details>
+<summary><b>Install in Claude Code</b></summary>
+
+Add to `~/.claude.json`:
+
+```json
+{
+  "projects": {
+    "/your/project/path": {
+      "mcpServers": {
+        "papermcp": {
+          "command": "npx",
+          "args": ["-y", "@telagod/papermcp"]
+        }
+      }
+    }
+  }
+}
+```
+
+</details>
+
+<details>
+<summary><b>Install in Gemini CLI</b></summary>
+
+Add to `~/.config/gemini-cli/settings.json`:
+
+```json
+{
+  "mcpServers": {
+    "papermcp": {
+      "command": "npx",
+      "args": ["-y", "@telagod/papermcp"]
+    }
+  }
+}
+```
+
+</details>
+
+<details>
+<summary><b>Install in Codex CLI</b></summary>
+
+Add to `~/.codex/config.toml`:
+
+```toml
+[mcp_servers.papermcp]
+command = "npx"
+args = ["-y", "@telagod/papermcp"]
+```
+
+</details>
+
+<details>
+<summary><b>Install in OpenCode</b></summary>
+
+Add to `.opencode.json`:
+
+```json
+{
+  "$schema": "https://opencode.ai/config.json",
+  "mcp": {
+    "papermcp": {
+      "type": "local",
+      "command": ["npx", "-y", "@telagod/papermcp"],
+      "enabled": true
+    }
+  }
+}
+```
+
+</details>
+
+<details>
+<summary><b>Install in Crush CLI</b></summary>
+
+Add to Crush config:
+
+```json
+{
+  "mcpServers": {
+    "papermcp": {
+      "command": "npx",
+      "args": ["-y", "@telagod/papermcp"]
+    }
+  }
+}
+```
+
+</details>
+
 ---
 
 ## 📚 Supported Platforms
